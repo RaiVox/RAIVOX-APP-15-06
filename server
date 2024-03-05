@@ -1,0 +1,7 @@
+import express from 'express';
+const app = express();
+const port = 5173; // El puerto que estás utilizando
+
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Servidor escuchando en http://0.0.0.0:${port}`);
+});

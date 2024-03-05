@@ -35,7 +35,7 @@ const Anfitriones: React.FC = () => {
     const onSubmit: SubmitHandler<FormInputs> = async (data) => {
         try {
             // Realiza la llamada a la API utilizando Axios
-            const response = await axios.post('http://192.168.1.103:3001/api/Anfitriones/', data);
+            const response = await axios.post('http://192.168.0.104:3001/api/Anfitriones/', data);
 
             // Puedes manejar la respuesta de la API según tus necesidades
             setMResponse({ title: 'Operación Exitosa', message: 'Se ha registrado correctamente' + JSON.stringify(response.data) });
@@ -50,7 +50,7 @@ const Anfitriones: React.FC = () => {
     };
 
     return (
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="s">
             <Paper elevation={3}>
                 <NavBar></NavBar>
                 <MyBox p={3} >
@@ -83,21 +83,21 @@ const Anfitriones: React.FC = () => {
                                 }
                             }}
                             {...register('correo')}
-                            error={!!errors.nombre}
-                            helperText={errors.nombre?.message}
+                            error={!!errors.correo}
+                            helperText={errors.correo?.message}
                         />
                         <TextField
                             margin="normal"
                             fullWidth
-                            label="Telefono"
+                            label="Teléfono"
                             InputProps={{
                                 style: {
                                     color: "black"
                                 }
                             }}
                             {...register('telefono', { required: 'Este campo es requerido' })}
-                            error={!!errors.nombre}
-                            helperText={errors.nombre?.message}
+                            error={!!errors.telefono}
+                            helperText={errors.telefono?.message}
                         />
                         <TextField
                             margin="normal"
@@ -109,8 +109,8 @@ const Anfitriones: React.FC = () => {
                                 }
                             }}
                             {...register('rol', { required: 'Este campo es requerido' })}
-                            error={!!errors.nombre}
-                            helperText={errors.nombre?.message}
+                            error={!!errors.rol}
+                            helperText={errors.nombre?.rol}
                         />
                         {/* Otros campos del formulario */}
                         <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
@@ -140,7 +140,5 @@ const Anfitriones: React.FC = () => {
         </Container>
     );
 };
-
-
 
 export { Anfitriones }
